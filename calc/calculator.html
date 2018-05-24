@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<form name="calculator">
+
+<input type="text" name="display" id="display"><br>
+<button id="one" type="button" value="1" onclick="dis('1')">1</button>
+<button id="two"type="button" value="2" onclick="dis('2')">2</button>
+<button id="three"type="button" value="3" onclick="dis('3')">3</button>
+<button id="add"type="button" value="+" onclick="oper('+')">+</button>
+<br>
+<button id="four" type="button" value="4" onclick="dis('4')">4</button>
+<button id="five" type="button" value="5" onclick="dis('5')">5</button>
+<button id="six" type="button" value="6" onclick="dis('6')">6</button>
+<button id="sub" type="button" value="-" onclick="oper('-')">-</button>
+<br>
+<button id="sev" type="button" value="7" onclick="dis('7')">7</button>
+<button id="ei" type="button" value="8" onclick="dis('8')">8</button>
+<button id="ni" type="button" value="9" onclick="dis('9')">9</button>
+<button id="mul" type="button" value="*" onclick="oper('*')">*</button>
+<br>
+<input id="clear" type="reset" value="C" onclick="cl()">
+<button id="zero" type="button" value="0" onclick="dis('0')">0</button>
+<button id="equal" type="button" value="=" onclick="cal()">=</button>
+<button id="div" type="button" value="/" onclick="oper('/')">/</button>
+
+</form>
+
+<script>
+var num1,op,num2,res,flag=0;
+
+function dis(num)
+{
+
+if(flag==1)
+    { 
+    document.getElementById("display").value=document.getElementById("display").value+num;
+    num2=Number(document.getElementById("display").value);
+    }
+else
+    {
+    document.getElementById("display").value=document.getElementById("display").value+num;
+    num1=Number(document.getElementById("display").value);
+    }
+
+}
+function oper(operator) 
+{
+   console.log('OP Called');
+   document.getElementById("display").value=""; 
+   document.getElementById("display").value=operator;
+   op=document.getElementById("display").value;
+   document.getElementById("display").value="";
+
+   flag=1;
+}
+function cal() 
+{
+    if(op=='+')
+    {
+        res=num1+num2;
+        console.log("add")
+    }
+    else
+    if(op=='-')
+    {
+        res=num1-num2;
+    }
+    else
+    if(op=='*')
+    {
+        res=num1*num2;
+    }
+    else
+    if(op=='/')
+    {
+        res=num1/num2;
+    }
+    document.getElementById("display").value=res;
+}
+function cl()
+{
+    console.log('Clear Called');
+    num1=0;
+    num2=0;
+    op=0;
+    res=0;
+    flag=0;
+    document.getElementById("display").value="";
+
+}
+</script>
+
+</body>
+</html>
