@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CALCULATOR</title>
+</head>
+<body>
+<form>
+  First Number:<br>
+  <input type="text" name="first" disabled id="first" ><br>
+  Second Number:<br>
+  <input type="text" name="second"  id="second" disabled><br>
+  Result:<br>
+  <input type="text" name="result"  id="result">
+</form>
+<table style="width:20px">
+        <tr>
+      
+                <td><input type="button" name="+" value="+" onclick="opb('+')"></td>
+                <td><input type="button" name="-" value="-" onclick="opb('-')"></td>
+                <td><input type="button" name="*" value="*" onclick="opb('*')"></td>
+                <td><input type="button" name="/" value="/" onclick="opb('/')"></td>
+       </tr>
+    
+    <tr>
+      
+      <td><input type="button" name="1" value="1" onclick="numone(1)"></td>
+      <td><input type="button" name="2" value="2" onclick="numone(2)"></td>
+      <td><input type="button" name="3" value="3" onclick="numone(3)"></td>
+      </tr>
+    <tr>
+        <td><input type="button" name="4" value=4 onclick="numone(4)"></td>
+        <td><input type="button" name="5" value=5 onclick="numone(5)"></td>
+        <td><input type="button" name="6" value=6 onclick="numone(6)"></td>
+        </tr>  
+  <tr>
+        <td><input type="button" name="7" value=7 onclick="numone(7)"></td>
+        <td><input type="button" name="8" value=8 onclick="numone(8)"></td>
+        <td><input type="button" name="9" value=9 onclick="numone(9)"></td>
+     </tr>
+  <tr>
+        <td><input type="button" name="0" value="0"onclick="numone(0)" >
+        </td> 
+      <td><input type="button" name="submit" value="=" onclick="ans()">
+      </td> 
+
+
+    </tr>
+  </table> 
+</body>
+<script>  
+  
+        var firstnumber;  
+        var secondnumber;  
+        var result;  
+        var op; 
+        var check=0; 
+          
+        function numone(n)
+        {           if(check==0)
+                    document.getElementById("first").value=document.getElementById("first").value+''+n;
+                    else
+                    document.getElementById("second").value=document.getElementById("second").value+''+n;    
+                    document.getElementById("result").value='';
+         }  
+
+       function secondclick()
+        {           check=1;
+                    document.getElementById("result").value='';
+         } 
+       function ans()
+       {
+        operator(op);
+        document.getElementById("result").value=result;
+        document.getElementById("first").value="";
+        document.getElementById("second").value="";
+        
+        check=0;
+        
+       }
+
+       function opb(o) //to decide the operation
+       {   
+           check=1;
+           op=o;
+       }
+
+       function operator(o)
+       {
+        switch(o)
+            {
+                case '+': result= Number(document.getElementById("first").value) +Number(document.getElementById("second").value);
+                          break;
+                case '-': result= Number(document.getElementById("first").value) - Number(document.getElementById("second").value);
+                          break; 
+                case '*': result= Number(document.getElementById("first").value) * Number(document.getElementById("second").value);
+                          break;
+                case '/': result= Number(document.getElementById("first").value) / Number(document.getElementById("second").value);
+                          break;
+                                 
+            }
+       }
+
+   </script>        
+</html>
