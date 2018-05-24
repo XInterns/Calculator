@@ -1,0 +1,69 @@
+<html>
+   <head>
+       <title> calculator</title>
+       </head>
+       <script>
+           function fun(num)
+           {
+               document.calculator.display.value=document.calculator.display.value+num;
+           }
+          function cle()
+          {
+              document.calculator.display.value="";
+          }
+       </script>
+   <body>
+      <form name="calculator">
+            <tr>
+                    <td colspan="4">
+                       <input type="text" name="display" id="display" disabled>
+                    </td>
+                 </tr>
+    </form>
+         <table>
+           
+            <tr>
+               <td><input type="button" name="one" value="1" onclick="fun(1)" size=35 style="background-color:white; border: 
+                solid 1px #6E6E6E; height: 30px; font-size:18px;"></td>
+               <td><input type="button" name="two" value="2" onclick="fun(2)" size=35 style="background-color:white; border: 
+                solid 1px #6E6E6E; height: 30px; font-size:18px;"></td>
+               <td><input type="button" name="three" value="3" onclick="fun(3)" size=35 style="background-color:white; border: 
+                solid 1px #6E6E6E; height: 30px; font-size:18px;" ></td>
+               <td><input type="button" class="operator" name="plus" value="+" style="background-color:white; border: 
+                solid 1px #6E6E6E; height: 30px; font-size:18px;" onclick="fun('+')"></td>
+            </tr>
+            <tr>
+               <td><input type="button" name="four" value="4" onclick="fun(4)" style="background-color:white; border: 
+                solid 1px #6E6E6E; height: 30px; font-size:18px;"></td>
+               <td><input type="button" name="five" value="5" onclick="fun(5)" style="background-color:white; border: 
+                solid 1px #6E6E6E; height: 30px; font-size:18px;" ></td>
+               <td><input type="button" name="six" value="6" onclick="fun(6)" style="background-color:white; border: 
+                solid 1px #6E6E6E; height: 30px; font-size:18px;" ></td>
+               <td><input type="button" class="operator" name="minus" value="-" onclick="fun('-')" style="background-color:white; border: 
+                solid 1px #6E6E6E; height: 30px; font-size:18px;" ></td>
+            </tr>
+            <tr>
+               <td><input type="button" name="seven" value="7" onclick="fun(7)" style="background-color:white; border: 
+                solid 1px #6E6E6E; height: 30px; font-size:18px;" ></td>
+               <td><input type="button" name="eight" value="8" onclick="fun(8)" style="background-color:white; border: 
+                solid 1px #6E6E6E; height: 30px; font-size:18px;" ></td>
+               <td><input type="button" name="nine" value="9" onclick="fun(9)" style="background-color:white; border: 
+                solid 1px #6E6E6E; height: 30px; font-size:18px;" ></td>
+               <td><input type="button" class="operator" name="times" value="x" onclick="fun('*')" style="background-color:white; border: 
+                solid 1px #6E6E6E; height: 30px; font-size:18px;" ></td>
+            </tr>
+            <tr>
+               <td><input type="button" id="clear" name="clear" value="c" onclick="cle()" style="background-color:white; border: 
+                solid 1px #6E6E6E; height: 30px; font-size:18px;" ></td>
+               <td><input type="button" name="zero" value="0" onclick="fun(0)" style="background-color:white; border: 
+                solid 1px #6E6E6E; height: 30px; font-size:18px;" ></td>
+               <td><input type="button" name="doit" value="=" onclick="calculator.display.value = eval(calculator.display.value)" style="background-color:white; border: 
+                solid 1px #6E6E6E; height: 30px; font-size:18px;"></td>
+               <td><input type="button" class="operator" name="div" value="/" onclick="fun('/')" style="background-color:white; border: 
+                solid 1px #6E6E6E; height: 30px; font-size:18px;" ></td>
+            </tr>
+         </table>
+      
+   </body>
+   </head>
+</html>
