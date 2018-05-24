@@ -1,0 +1,137 @@
+<html>
+    <head>
+        <h1>Calculator</h1>
+    </head>
+
+    <script>
+        document.querySelector("input").addEventListener("keypress",function (evt){
+            if(evt.which<48 ||evt.which>57)
+            {
+                evt.preventDefault();
+            }
+        });
+        var num1,num2;
+        var result,check=0,op;
+
+        function clr(){
+            document.getElementById("num1").value="";
+            document.getElementById("num2").value="";
+            document.getElementById("op").value="";
+            document.getElementById("result").value="";
+            num1=0;
+            num2=0;
+            result=0;
+            check=0;
+
+        }
+
+        function equal(){
+            
+            var n1=parseInt(document.getElementById("num1").value);
+            var n2=parseInt(document.getElementById("num2").value);
+            switch(op){
+
+                case 1: document.getElementById("result").value=n1+n2;
+                        break;
+                case 2: document.getElementById("result").value=n1-n2;
+                        break;
+                case 3: document.getElementById("result").value=n1*n2;
+                        break;
+                case 4: document.getElementById("result").value=n1/n2;
+                        break;
+
+
+            }
+        }
+
+        function doOp(operator){
+            if(operator=='+')
+                op=1;
+            if(operator=='-')
+                op=2;
+            if(operator=='*')
+                op=3;
+            if(operator=='/')
+                op=4;
+           document.getElementById("op").value=operator;  
+           check=1;        
+
+        }
+            
+            function w(num){
+               
+                var h=parseInt(num); 
+                if(check==0)               
+                document.getElementById('num1').value=document.getElementById('num1').value+h;
+                else{
+                    document.getElementById("num2").value= document.getElementById("num2").value+h;
+                }
+               
+
+            }
+        </script>
+      
+    <body>
+        
+        <input type="number" name="num1" id="num1" value="" pattern="[0-9]*"><br>
+        <input type="number" name="num2" id="num2" value=""><br>
+        <input type="text" name="op" id="op" value=""><br>
+        <input type="number" name="result" id="result" value=""><br>
+  
+        <table border="4">
+
+            <tr>
+                <td>
+                    <table>
+                            <tr>
+                                    <td><input type="button" value="7" id="seven" onclick="w('7')"></td>
+                                    <td><input type="button" value="8" id="eight" onclick="w('8')"></td>
+                                    <td><input type="button" value="9" id="nine" onclick="w('9')"></td>
+                    
+                                </tr>
+                    
+                                <tr>
+                                    <td><input type="button" value="4" id="four" onclick="w('4')"></td>
+                                    <td><input type="button" value="5" id="five" onclick="w('5')"></td>
+                                    <td><input type="button" value="6" id="six" onclick="w('6')"></td>
+                    
+                                </tr>
+                    
+                                <tr>
+                                    <td><input type="button" value="1" id="one" onclick="w('1')"></td>
+                                    <td><input type="button" value="2" id="two" onclick="w('2')"></td>
+                                    <td><input type="button" value="3" id="three" onclick="w('3')"></td>
+                    
+                                </tr>
+                                <tr>
+                                    <td colspan="3" rowspan="3">
+                                    <input type="button" value="0"id="zero"  onclick="w('0')">
+                                    </td>
+                                </tr>
+                    </table>
+                </td>
+
+                <td>
+                    <table>
+                        <tr>
+                            <td><input type="button" value="+" id="plus" onclick="doOp('+')"></td>
+                            <td><input type="button" value="-" id="minus" onclick="doOp('-')"></td>
+                            
+                        </tr>
+                        <tr>
+                            <td><input type="button" value="*" id="mul" onclick="doOp('*')"></td>
+                            <td><input type="button" value="/" id="div" onclick="doOp('/')"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="button" value="=" id="eql" onclick="equal()"></td>
+                            <td><input type="button" value="C" id="clr" onclick="clr()"></td>
+                            </tr>
+                    </table>
+                </td>
+            </tr>
+            
+        </table>
+
+
+    </body>
+</html>
