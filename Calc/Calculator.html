@@ -1,0 +1,148 @@
+<html>
+<head>
+<title>Calculator</title>
+</head>
+<script>
+    var counter=0;
+function print1(a)
+{
+    //document.write('1 is printed');
+    var number;
+    var x=document.getElementById('text');
+    number=x.value;
+    
+    if(number>='a'&&number<='z')
+    return 0;
+    number=number+a;
+    document.getElementById('text').value=number;
+    document.getElementById('p').value="Numbre is added";
+    //document.write('1 is printed');
+    
+}
+var ch=0;
+var num1=0;
+var op=0;
+function operation(flag)
+{
+    var n=document.getElementById('text').value;
+    
+    if(isNaN(n))
+    {
+    document.getElementById('p').innerHTML='Wrong number';
+    return 0;
+    }
+    num1=parseInt(n);
+   
+    op=flag;
+    document.getElementById('text').value="";
+    document.getElementById('p').innerHTML='Number 1 is  '+num1;
+    ch=1;
+}
+var num2=0;
+
+function equal()
+{
+    //document.write('num1 is '+ num1);
+    var p=document.getElementById('text').value;
+    if(isNaN(p))
+    {
+    document.getElementById('p').innerHTML='Wrong number';
+    return 0;
+    }
+    if(ch==0)
+    p=num2;
+    else
+    num2=parseInt(p);
+    if(op==1)
+     var answer=parseInt(num1)+parseInt(p);
+    else
+    if(op==2)
+    var answer=parseInt(num1)-parseInt(p);
+    else
+    if(op==3)
+    var answer=parseInt(num1)*parseInt(p);
+    else
+    if(op==4)
+    var answer=parseInt(num1)/parseInt(p);
+    num1=answer;
+    // document.write('Answer is '+answer);
+    document.getElementById('text').value=answer;
+    ch=0;
+    document.getElementById('p').innerHTML='Number 1 is  '+num1+'<br> Number 2 is '+num2;
+    
+}
+
+function cl()
+{
+    //document.write('clear called');
+    document.getElementById('p').innerHTML="";
+    num1=0;
+    num2=0;
+    document.getElementById('text').value="";
+}
+
+</script>
+<body>
+        <input type='number' id='text' value="" disabled pattern="[/^[0-9]+$/]">
+    <br>
+<p id='p'></p>
+    <table>
+            <tr>
+                    <td>
+                        <input type='button' name='7' value='7' onclick="print1('7')"></input>
+                    </td>
+                    <td>
+                        <input type='button' name='8' value='8' onclick="print1('8')"></input>
+                    </td>
+                    <td>
+                        <input type='button' name='9' value='9' onclick="print1('9')"></input>
+                    </td>
+                </tr>
+    <tr>
+            <td>
+                    <input type='button' name='4' value='4' onclick="print1('4')"></input>
+                </td>
+                <td>
+                    <input type='button' name='5' value='5' onclick="print1('5')"></input>
+                </td>
+                <td>
+                    <input type='button' name='6' value='6' onclick="print1('6')" ></input>
+                </td>
+    </tr>   
+    <tr>
+            <td>
+                <input type='button' name='1' value='1' onclick="print1('1')"></input>
+            </td>
+            <td>
+                <input type='button' name='2' value='2' onclick="print1('2')"></input>
+            </td>
+            <td>
+                <input type='button' name='3' value='3' onclick="print1('3')"></input>
+            </td>
+        </tr> 
+        <tr><td></td>
+             <td colspan="3">  <input type='button' name='0' value='0' onclick="print1('0')"></input>
+             </td> 
+             <td></td>
+        </tr>
+        <tr>
+                <td>
+                    <input type='button' name='+' value='+' onclick="operation('1')"></input>
+                </td>
+                <td>
+                    <input type='button' name='-' value='-' onclick="operation('2')"></input>
+                </td>
+                <td>
+                    <input type='button' name='*' value='*' onclick="operation('3')"></input>
+                </td>
+            </tr> 
+            
+   <tr>
+           <td> <input type='button' name='/' value='/' onclick="operation('4')"></input></td>
+           <td><input type='button' name='=' value='=' onclick="equal()"></input></td>
+           <td><input type='button' name='C' value='C' onclick="cl()"></input></td>
+</tr>
+</table>
+    <p id='p'></p>
+</body>
+</html>
