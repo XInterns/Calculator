@@ -1,0 +1,69 @@
+<html>
+<title>Calculator</title>
+<body>
+    <form>
+        <input id="ans" type="text" value='' disabled> 
+    </form>
+    <table>
+        <tr>
+            <td><input type="button" id="7" value="7" onclick="append('7')"></td>
+            <td><input type="button" id="8" value="8" onclick="append('8')"></td>
+            <td><input type="button" id="9" value="9" onclick="append('9')"></td>
+            <td><input type="button" id="+" value="+" onclick="append('+')"></td>
+            <td><input type="button" id="=" value="=" onclick="equal()"></td>
+        </tr>
+        <tr>
+                <td><input type="button" id="4" value="4" onclick="append('4')"></td>
+                <td><input type="button" id="5" value="5" onclick="append('5')"></td>
+                <td><input type="button" id="6" value="6" onclick="append('6')"></td>
+                <td><input type="button" id="-" value="-" onclick="append('-')"></td>
+        </tr>
+        <tr>
+                <td><input type="button" id="1" value="1" onclick="append('1')"></td>
+                <td><input type="button" id="2" value="2" onclick="append('2')"></td>
+                <td><input type="button" id="3" value="3" onclick="append('3')"></td>
+                <td><input type="button" id="*" value="*" onclick="append('*')"></td>
+        </tr>
+        <tr>
+                <td><input type="button" id="dot" value="." onclick="append('.')"></td>
+                <td><input type="button" id="0" value="0" onclick="append('0')"></td>
+                <td><input type="button" id="Reset" value="C" onclick="reset('')"></td>
+                <td><input type="button" id="/" value="/" onclick="append('/')"></td>
+        </tr>
+    </table>
+<script>
+    var no1, no2, ans
+    function reset(str)
+    {
+        document.getElementById("ans").value=str
+        document.getElementById("1").click=false
+        document.getElementById("2").click=false
+        document.getElementById("3").click=false
+        document.getElementById("4").click=false
+        document.getElementById("5").click=false
+        document.getElementById("6").click=false
+        document.getElementById("7").click=false
+        document.getElementById("8").click=false
+        document.getElementById("9").click=false
+        document.getElementById("0").click=false
+        document.getElementById("dot").click=false
+        document.getElementById("+").click=false
+        document.getElementById("-").click=false
+        document.getElementById("*").click=false
+        document.getElementById("/").click=false
+        document.getElementById("=").click=false
+    }
+
+    function append(num)
+    {
+        document.getElementById("ans").value+=num
+    }
+
+    function equal()
+    {
+        document.getElementById("ans").value= eval(document.getElementById("ans").value)
+    }
+</script>
+
+</body>
+</html>
