@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TO DO LIST 2</title>
+</head>
+<body>
+<form id="form">
+  TASK :<br>
+  <input type="text" name="task" id="task" > 
+  <input id="add" type="button" name="add" value="ADD" onclick="add1()">
+  <p id="para"></p>
+  
+  </form>
+</body>
+<script>  
+   
+     var val;
+     var str;
+     var n=0; //id no.s
+     var arr=[]; //stores the task value
+     var c=[];// stores the status of the checkboxes-> even means unchecked ,odd means checked 
+     
+          
+        function add1()
+        {       console.log("added");
+                  var tex=document.createElement('span');
+                  var nl=document.createElement('br');
+                  tex.innerHTML= document.getElementById("task").value;
+                  var chec=document.createElement('input'); 
+                   chec.id=n;
+                   chec.type="checkbox";
+                   chec.value=document.getElementById("task").value;
+                   
+
+                               chec.onclick=function()
+            {
+                //console.log("check strike")
+                if(this.checked==true)
+                    {
+                        this.nextElementSibling.style.setProperty("text-decoration", "line-through")
+                        //console.log("content striked")
+                    }
+                else
+                    {
+                        this.nextElementSibling.style.textDecoration='none'
+                        //console.log("content unstriked")
+                    }
+            }
+                    n+=1;
+
+                    console.log("added2");
+                    document.getElementById("task").value=""; 
+                    console.log(chec.value);
+                    document.getElementById("para").appendChild(chec);
+                    document.getElementById("para").appendChild(tex);
+                    document.getElementById("para").appendChild(nl);
+    
+        } 
+
+   </script>        
+</html>
